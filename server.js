@@ -36,7 +36,14 @@ app.post("/api/chat", async (req, res) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        inputs: {},
+inputs: {
+  current_date: new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date())
+},
         query: query.trim(),
         response_mode: "blocking",
         conversation_id: conversation_id || "",
