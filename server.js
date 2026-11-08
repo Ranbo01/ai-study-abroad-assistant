@@ -64,9 +64,9 @@ inputs: {
     }
 
     res.json({
-      answer: data.answer || "",
-      conversation_id: data.conversation_id || ""
-    });
+  answer: (data.answer || "").replace(/<think>[\s\S]*?<\/think>/gi, "").trim(),
+  conversation_id: data.conversation_id || ""
+});
 
   } catch (error) {
     console.error("Server error:", error);
