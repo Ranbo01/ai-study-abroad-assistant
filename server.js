@@ -28,7 +28,14 @@ app.post("/api/chat", async (req, res) => {
         error: "服务器尚未配置 Dify API Key"
       });
     }
+const currentDate = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(new Date());
 
+console.log("当前传给 Dify 的日期：", currentDate);
     const response = await fetch(DIFY_API_URL, {
       method: "POST",
       headers: {
@@ -37,12 +44,7 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
 inputs: {
-  current_date: new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  }).format(new Date())
+  current_date: currentDate
 },
         query: query.trim(),
         response_mode: "blocking",
