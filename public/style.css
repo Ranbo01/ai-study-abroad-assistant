@@ -785,3 +785,46 @@ textarea {
     gap: 15px;
   }
 }
+
+/* AI 回复操作按钮 */
+
+.message-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid #e4ebf4;
+}
+
+.message-action {
+  min-height: 30px;
+  padding: 5px 11px;
+  border: 1px solid #e1e8f1;
+  border-radius: 6px;
+  color: #71839b;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.message-action:hover {
+  color: #2868d8;
+  border-color: #9bbcf0;
+  background: #f5f8ff;
+}
+
+.message-action.active {
+  color: #2868d8;
+  border-color: #8bb2ef;
+  background: #edf4ff;
+}
+
+.action-notice {
+  width: 100%;
+  color: #8a98aa;
+  font-size: 11px;
+  line-height: 1.6;
+}
