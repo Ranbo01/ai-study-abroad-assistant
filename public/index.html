@@ -113,43 +113,52 @@
       </div>
     </section>
 
-    <section class="chat-section" id="chat">
-      <div class="chat-panel">
+    
+<section class="chat-section" id="chat">
+  <div class="chat-panel">
 
-        <div class="chat-panel-header">
-          <div class="advisor-avatar">U</div>
-          <div>
-            <strong>UNIVIA AI Advisor</strong>
-            <span><i></i> 智能顾问在线</span>
-          </div>
-        </div>
-
-<div class="message assistant-message initial-message">
-  你好！我是 UNIVIA AI 留学规划助手。你可以告诉我你的本科院校、专业、成绩和留学目标，我会帮你逐步分析。
-</div>
-
-        <div class="quick-questions">
-          <button type="button" class="quick-question">英国硕士申请流程</button>
-          <button type="button" class="quick-question">帮我分析申请背景</button>
-          <button type="button" class="quick-question">推荐适合我的院校</button>
-        </div>
-
-        <form class="chat-input-area" id="chatForm">
-          <textarea
-            id="chatInput"
-            placeholder="输入你的留学问题..."
-            rows="2"
-          ></textarea>
-          <button type="submit" id="sendButton">发送 ↑</button>
-        </form>
-
-        <div class="chat-footer">
-          Enter 发送 · Shift + Enter 换行
-          <span>AI 生成内容仅供参考，具体申请要求以院校官方信息为准。</span>
-        </div>
-
+    <div class="chat-panel-header">
+      <div class="advisor-avatar">U</div>
+      <div>
+        <strong>UNIVIA AI Advisor</strong>
+        <span><i></i> 智能顾问在线</span>
       </div>
-    </section>
+    </div>
+
+    <!-- 聊天消息区域 -->
+    <div class="chat-messages" id="chatMessages">
+
+      <div class="message assistant-message initial-message">
+        你好！我是 UNIVIA AI 留学规划助手。你可以告诉我你的本科院校、专业、成绩和留学目标，我会帮你逐步分析。
+      </div>
+
+    </div>
+
+    <!-- 快捷提问 -->
+    <div class="quick-questions">
+      <button type="button" class="quick-question">英国硕士申请流程</button>
+      <button type="button" class="quick-question">帮我分析申请背景</button>
+      <button type="button" class="quick-question">推荐适合我的院校</button>
+    </div>
+
+    <!-- 输入区域 -->
+    <form class="chat-input-area" id="chatForm">
+      <textarea
+        id="chatInput"
+        placeholder="输入你的留学问题..."
+        rows="2"
+      ></textarea>
+      <button type="submit" id="sendButton">发送 ↑</button>
+    </form>
+
+    <div class="chat-footer">
+      Enter 发送 · Shift + Enter 换行
+      <span>AI 生成内容仅供参考，具体申请要求以院校官方信息为准。</span>
+    </div>
+
+  </div>
+</section>
+
   </main>
 
   <footer class="footer" id="how-it-works">
