@@ -945,3 +945,27 @@ textarea {
     padding: 12px !important;
   }
 }
+
+/* 单独修复初始欢迎语气泡 */
+
+.chat-messages > .initial-message {
+  display: block !important;
+  width: fit-content !important;
+  max-width: min(75%, 900px) !important;
+  min-width: 0 !important;
+  padding: 16px !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: flex-start !important;
+  box-sizing: border-box !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 560px) {
+  .chat-messages > .initial-message {
+    max-width: 88% !important;
+  }
+}
