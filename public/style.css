@@ -524,10 +524,18 @@ textarea {
   word-break: normal;
 }
 
-.assistant-message {
+.initial-message {
+  display: block;
+  width: fit-content;
+  max-width: min(520px, 88%);
+  min-width: 0;
   align-self: flex-start;
-  color: #536781;
-  background: #f2f6fc;
+  flex: 0 1 auto;
+  padding: 16px 18px;
+  line-height: 1.75;
+  white-space: normal;
+  overflow-wrap: break-word;
+  border-radius: 5px 14px 14px 14px;
 }
 
 .user-message {
