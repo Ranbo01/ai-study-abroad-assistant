@@ -1,4 +1,11 @@
 
+/* ==============================
+   UNIVIA AI STUDY ABROAD
+   Main Stylesheet
+   ============================== */
+
+/* 全局 */
+
 * {
   box-sizing: border-box;
 }
@@ -25,6 +32,10 @@ button,
 textarea {
   font: inherit;
 }
+
+/* ==============================
+   顶部导航
+   ============================== */
 
 .header {
   height: 82px;
@@ -94,7 +105,9 @@ textarea {
   background: #2463d5;
 }
 
-/* 首页首屏 */
+/* ==============================
+   首页首屏
+   ============================== */
 
 .hero {
   min-height: 590px;
@@ -295,7 +308,9 @@ textarea {
   font-size: 10px;
 }
 
-/* 服务能力 */
+/* ==============================
+   服务能力
+   ============================== */
 
 .services {
   padding: 90px 6%;
@@ -388,12 +403,13 @@ textarea {
   line-height: 1.8;
 }
 
-/* 全宽 AI 咨询区域 */
+/* ==============================
+   AI 咨询区域
+   ============================== */
 
 .chat-section {
   min-height: calc(100vh - 82px);
   padding: 35px 5% 28px;
-  display: block;
   scroll-margin-top: 82px;
   background: #f6f9fe;
 }
@@ -401,18 +417,26 @@ textarea {
 .chat-panel {
   width: 100%;
   max-width: 1500px;
-  min-height: calc(100vh - 145px);
+  height: calc(100vh - 145px);
+  min-height: 620px;
   margin: 0 auto;
   padding: 25px 38px 20px;
+
   display: flex;
   flex-direction: column;
+
   border: 1px solid #e9eef6;
   border-radius: 18px;
   background: #fff;
   box-shadow: 0 20px 60px #234a800d;
+
+  overflow: hidden;
 }
 
+/* 顶部顾问信息 */
+
 .chat-panel-header {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -423,6 +447,7 @@ textarea {
 .advisor-avatar {
   width: 42px;
   height: 42px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 12px;
@@ -457,43 +482,76 @@ textarea {
   background: #20b889;
 }
 
+/* 消息列表
+   只有这个区域滚动 */
+
 .chat-messages {
-  flex: 1;
-  min-height: 400px;
-  max-height: calc(100vh - 340px);
-  padding: 28px 0;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  padding: 24px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   scroll-behavior: smooth;
 }
 
+/* 消息气泡 */
+
 .message {
-  max-width: min(85%, 1050px);
-  margin-bottom: 18px;
-  padding: 17px 20px;
+  display: block;
+  width: fit-content;
+  max-width: min(88%, 1100px);
+  min-width: 0;
+  height: auto;
+  flex: 0 0 auto;
+
+  margin: 0;
+  padding: 16px;
+
   border-radius: 5px 14px 14px 14px;
+
   font-size: 14px;
-  line-height: 1.9;
+  line-height: 1.75;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .assistant-message {
+  align-self: flex-start;
   color: #536781;
   background: #f2f6fc;
 }
 
 .user-message {
-  margin-left: auto;
+  align-self: flex-end;
+  max-width: min(78%, 900px);
   border-radius: 14px 5px 14px 14px;
   color: #fff;
   background: #2868d8;
+  text-align: left;
 }
+
+/* 初始欢迎语
+   与普通 AI 消息使用相同规则 */
 
 .initial-message {
-  max-width: 85%;
+  width: fit-content;
+  max-width: min(88%, 1100px);
+  align-self: flex-start;
 }
 
+/* 快捷提问 */
+
 .quick-questions {
+  flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -517,13 +575,64 @@ textarea {
   background: #f6f9ff;
 }
 
-/* 输入框 */
+/* ==============================
+   AI 回复操作按钮
+   ============================== */
+
+.message-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e4ebf4;
+}
+
+.message-action {
+  min-height: 30px;
+  padding: 5px 11px;
+  border: 1px solid #e1e8f1;
+  border-radius: 6px;
+  color: #71839b;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.message-action:hover {
+  color: #2868d8;
+  border-color: #9bbcf0;
+  background: #f5f8ff;
+}
+
+.message-action.active {
+  color: #2868d8;
+  border-color: #8bb2ef;
+  background: #edf4ff;
+}
+
+.action-notice {
+  flex-basis: 100%;
+  color: #8a98aa;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ==============================
+   输入框
+   固定在聊天面板底部
+   不随消息列表滚动
+   ============================== */
 
 .chat-input-area {
+  flex: 0 0 auto;
   display: flex;
   align-items: flex-end;
   gap: 14px;
   padding: 16px 18px;
+
   border: 1px solid #dce6f3;
   border-radius: 13px;
   background: #fafcff;
@@ -543,6 +652,7 @@ textarea {
   resize: none;
   border: 0;
   outline: 0;
+
   color: #263c5b;
   background: transparent;
   font-size: 15px;
@@ -558,11 +668,14 @@ textarea {
   height: 44px;
   min-width: 92px;
   padding: 0 22px;
+
   border: 0;
   border-radius: 9px;
+
   color: #fff;
   background: #2868d8;
   cursor: pointer;
+
   font-size: 13px;
   font-weight: 600;
   transition: 0.2s;
@@ -577,11 +690,16 @@ textarea {
   cursor: not-allowed;
 }
 
+/* 底部提示 */
+
 .chat-footer {
+  flex: 0 0 auto;
   padding-top: 14px;
+
   display: flex;
   flex-direction: column;
   gap: 6px;
+
   color: #a1adbd;
   text-align: center;
   font-size: 11px;
@@ -592,7 +710,9 @@ textarea {
   font-size: 10px;
 }
 
-/* 页脚 */
+/* ==============================
+   页脚
+   ============================== */
 
 .footer {
   min-height: 110px;
@@ -622,7 +742,9 @@ textarea {
   letter-spacing: 1px;
 }
 
-/* 平板 */
+/* ==============================
+   平板
+   ============================== */
 
 @media (max-width: 850px) {
   .hero {
@@ -644,16 +766,23 @@ textarea {
   }
 
   .chat-panel {
-    min-height: calc(100vh - 130px);
+    height: calc(100vh - 130px);
+    min-height: 580px;
     padding: 22px;
   }
 
-  .chat-messages {
-    max-height: calc(100vh - 330px);
+  .message {
+    max-width: 90%;
+  }
+
+  .user-message {
+    max-width: 82%;
   }
 }
 
-/* 手机 */
+/* ==============================
+   手机
+   ============================== */
 
 @media (max-width: 560px) {
   .header {
@@ -727,35 +856,60 @@ textarea {
   }
 
   .chat-section {
-    min-height: calc(100vh - 68px);
+    min-height: calc(100dvh - 68px);
     padding: 12px 10px;
     scroll-margin-top: 68px;
   }
 
   .chat-panel {
-    min-height: calc(100vh - 92px);
+    height: calc(100dvh - 92px);
+    min-height: 480px;
     padding: 16px 14px;
     border-radius: 13px;
   }
 
+  .chat-panel-header {
+    padding-bottom: 14px;
+  }
+
   .chat-messages {
-    min-height: 300px;
-    max-height: calc(100vh - 320px);
-    padding: 20px 0;
+    padding: 18px 0;
+    gap: 10px;
   }
 
   .message {
-    max-width: 94%;
-    padding: 13px 14px;
+    max-width: 92%;
+    padding: 12px 14px;
     font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .user-message {
+    max-width: 85%;
+  }
+
+  .initial-message {
+    max-width: 92%;
   }
 
   .quick-questions {
     gap: 7px;
+    padding-bottom: 12px;
   }
 
   .quick-question {
     padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .message-actions {
+    gap: 7px;
+    margin-top: 10px;
+    padding-top: 9px;
+  }
+
+  .message-action {
+    padding: 5px 9px;
     font-size: 11px;
   }
 
@@ -766,6 +920,7 @@ textarea {
 
   .chat-input-area textarea {
     min-height: 54px;
+    max-height: 140px;
     font-size: 14px;
   }
 
@@ -776,6 +931,7 @@ textarea {
   }
 
   .chat-footer {
+    padding-top: 10px;
     font-size: 10px;
   }
 
@@ -783,233 +939,5 @@ textarea {
     align-items: flex-start;
     flex-direction: column;
     gap: 15px;
-  }
-}
-
-/* AI 回复操作按钮 */
-
-.message-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 14px;
-  padding-top: 11px;
-  border-top: 1px solid #e4ebf4;
-}
-
-.message-action {
-  min-height: 30px;
-  padding: 5px 11px;
-  border: 1px solid #e1e8f1;
-  border-radius: 6px;
-  color: #71839b;
-  background: #fff;
-  cursor: pointer;
-  font-size: 12px;
-  transition: all 0.2s ease;
-}
-
-.message-action:hover {
-  color: #2868d8;
-  border-color: #9bbcf0;
-  background: #f5f8ff;
-}
-
-.message-action.active {
-  color: #2868d8;
-  border-color: #8bb2ef;
-  background: #edf4ff;
-}
-
-.action-notice {
-  width: 100%;
-  color: #8a98aa;
-  font-size: 11px;
-  line-height: 1.6;
-}
-
-/* 聊天气泡尺寸自适应优化 */
-
-.chat-messages {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-}
-
-.message {
-  display: inline-block;
-  width: fit-content;
-  max-width: min(78%, 1000px);
-  min-width: 0;
-  height: auto;
-  padding: 14px 18px;
-  margin: 0;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  word-break: normal;
-  line-height: 1.85;
-  font-size: 14px;
-}
-
-.assistant-message {
-  align-self: flex-start;
-  border-radius: 5px 14px 14px 14px;
-}
-
-.user-message {
-  align-self: flex-end;
-  border-radius: 14px 5px 14px 14px;
-  text-align: left;
-}
-
-/* 长方案内容保持舒适阅读宽度 */
-
-.assistant-message:has(.message-actions) {
-  max-width: min(88%, 1100px);
-}
-
-/* 手机端 */
-
-@media (max-width: 560px) {
-  .message {
-    max-width: 90%;
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-
-  .assistant-message:has(.message-actions) {
-    max-width: 96%;
-  }
-}
-
-/* 聊天气泡垂直间距优化 */
-
-.chat-messages {
-  gap: 12px !important;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.chat-messages > .message {
-  height: auto !important;
-  min-height: 0 !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  line-height: 1.75;
-}
-
-/* 操作按钮与消息正文的间距 */
-.message-actions {
-  margin-top: 10px;
-  padding-top: 9px;
-}
-
-/* 手机端 */
-@media (max-width: 560px) {
-  .chat-messages {
-    gap: 10px !important;
-  }
-
-  .chat-messages > .message {
-    padding-top: 9px !important;
-    padding-bottom: 9px !important;
-  }
-}
-
-/* 聊天气泡统一间距 */
-
-.chat-messages {
-  gap: 8px !important;
-  padding: 16px !important;
-}
-
-.chat-messages > .message {
-  padding: 16px !important;
-  margin: 0 !important;
-  line-height: 1.7;
-  height: auto !important;
-  min-height: 0 !important;
-}
-
-@media (max-width: 560px) {
-  .chat-messages {
-    padding: 12px !important;
-    gap: 8px !important;
-  }
-
-  .chat-messages > .message {
-    padding: 12px !important;
-  }
-}
-
-/* 单独修复初始欢迎语气泡 */
-
-.chat-messages > .initial-message {
-  display: block !important;
-  width: fit-content !important;
-  max-width: min(75%, 900px) !important;
-  min-width: 0 !important;
-  padding: 16px !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: 0 !important;
-  align-self: flex-start !important;
-  box-sizing: border-box !important;
-  white-space: pre-wrap !important;
-  overflow-wrap: anywhere !important;
-  line-height: 1.7 !important;
-}
-
-@media (max-width: 560px) {
-  .chat-messages > .initial-message {
-    max-width: 88% !important;
-  }
-}
-/* 初始欢迎语独立布局 */
-.chat-messages > .initial-message {
-  display: inline-flex !important;
-  width: fit-content !important;
-  max-width: 75% !important;
-  align-self: flex-start !important;
-  padding: 0 !important;
-}
-
-.initial-message .message-content {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 560px) {
-  .chat-messages > .initial-message {
-    max-width: 88% !important;
-  }
-}
-/* 初始欢迎语尺寸修复 */
-.chat-messages > .initial-message {
-  display: block !important;
-  width: fit-content !important;
-  max-width: 75% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  flex: 0 1 auto !important;
-  padding: 16px !important;
-  margin: 0 !important;
-  align-self: flex-start !important;
-  box-sizing: border-box !important;
-  line-height: 1.7 !important;
-}
-
-@media (max-width: 560px) {
-  .chat-messages > .initial-message {
-    max-width: 88% !important;
   }
 }
