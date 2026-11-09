@@ -828,3 +828,58 @@ textarea {
   font-size: 11px;
   line-height: 1.6;
 }
+
+/* 聊天气泡尺寸自适应优化 */
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.message {
+  display: inline-block;
+  width: fit-content;
+  max-width: min(78%, 1000px);
+  min-width: 0;
+  height: auto;
+  padding: 14px 18px;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.85;
+  font-size: 14px;
+}
+
+.assistant-message {
+  align-self: flex-start;
+  border-radius: 5px 14px 14px 14px;
+}
+
+.user-message {
+  align-self: flex-end;
+  border-radius: 14px 5px 14px 14px;
+  text-align: left;
+}
+
+/* 长方案内容保持舒适阅读宽度 */
+
+.assistant-message:has(.message-actions) {
+  max-width: min(88%, 1100px);
+}
+
+/* 手机端 */
+
+@media (max-width: 560px) {
+  .message {
+    max-width: 90%;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .assistant-message:has(.message-actions) {
+    max-width: 96%;
+  }
+}
