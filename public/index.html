@@ -114,13 +114,8 @@
     </section>
 
     <section class="chat-section" id="chat">
-      <div class="chat-intro">
-        <span>AI ADVISOR</span>
-        <h2>有什么留学问题？<br>我们一起找到答案。</h2>
-        <p>告诉我你的本科背景、目标国家或专业，开始你的留学规划。</p>
-      </div>
-
       <div class="chat-panel">
+
         <div class="chat-panel-header">
           <div class="advisor-avatar">U</div>
           <div>
@@ -130,7 +125,7 @@
         </div>
 
         <div class="chat-messages" id="chatMessages">
-          <div class="message assistant-message">
+          <div class="message assistant-message initial-message">
             你好！我是 UNIVIA AI 留学规划助手。你可以告诉我你的本科院校、专业、成绩和留学目标，我会帮你逐步分析。
           </div>
         </div>
@@ -145,14 +140,16 @@
           <textarea
             id="chatInput"
             placeholder="输入你的留学问题..."
-            rows="1"
+            rows="2"
           ></textarea>
           <button type="submit" id="sendButton">发送 ↑</button>
         </form>
 
         <div class="chat-footer">
-          AI 生成内容仅供参考，具体申请要求以院校官方信息为准。
+          Enter 发送 · Shift + Enter 换行
+          <span>AI 生成内容仅供参考，具体申请要求以院校官方信息为准。</span>
         </div>
+
       </div>
     </section>
   </main>
