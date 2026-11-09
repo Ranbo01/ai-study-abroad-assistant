@@ -883,3 +883,39 @@ textarea {
     max-width: 96%;
   }
 }
+
+/* 聊天气泡垂直间距优化 */
+
+.chat-messages {
+  gap: 12px !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.chat-messages > .message {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.75;
+}
+
+/* 操作按钮与消息正文的间距 */
+.message-actions {
+  margin-top: 10px;
+  padding-top: 9px;
+}
+
+/* 手机端 */
+@media (max-width: 560px) {
+  .chat-messages {
+    gap: 10px !important;
+  }
+
+  .chat-messages > .message {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+  }
+}
