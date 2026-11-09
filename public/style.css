@@ -993,3 +993,23 @@ textarea {
     max-width: 88% !important;
   }
 }
+/* 初始欢迎语尺寸修复 */
+.chat-messages > .initial-message {
+  display: block !important;
+  width: fit-content !important;
+  max-width: 75% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 0 1 auto !important;
+  padding: 16px !important;
+  margin: 0 !important;
+  align-self: flex-start !important;
+  box-sizing: border-box !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 560px) {
+  .chat-messages > .initial-message {
+    max-width: 88% !important;
+  }
+}
