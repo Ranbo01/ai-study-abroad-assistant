@@ -969,3 +969,27 @@ textarea {
     max-width: 88% !important;
   }
 }
+/* 初始欢迎语独立布局 */
+.chat-messages > .initial-message {
+  display: inline-flex !important;
+  width: fit-content !important;
+  max-width: 75% !important;
+  align-self: flex-start !important;
+  padding: 0 !important;
+}
+
+.initial-message .message-content {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  .chat-messages > .initial-message {
+    max-width: 88% !important;
+  }
+}
