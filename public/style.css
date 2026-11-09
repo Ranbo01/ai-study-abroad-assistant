@@ -919,3 +919,29 @@ textarea {
     padding-bottom: 9px !important;
   }
 }
+
+/* 聊天气泡统一间距 */
+
+.chat-messages {
+  gap: 8px !important;
+  padding: 16px !important;
+}
+
+.chat-messages > .message {
+  padding: 16px !important;
+  margin: 0 !important;
+  line-height: 1.7;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+@media (max-width: 560px) {
+  .chat-messages {
+    padding: 12px !important;
+    gap: 8px !important;
+  }
+
+  .chat-messages > .message {
+    padding: 12px !important;
+  }
+}
